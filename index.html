@@ -3,283 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demon Nodes | Premium Game Hosting</title>
+<title>Minecraft Server Hosting</title>
+
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body{
-background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-color:white;
-overflow-x:hidden;
-scroll-behavior:smooth;
+    background:#0f172a;
+    color:white;
 }
 
-/* LOADER */
-#loader{
-position:fixed;
-width:100%;
-height:100vh;
-background:#0f0c29;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
 }
-.loader{
-width:60px;height:60px;
-border:6px solid #a855f7;
-border-top:6px solid transparent;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-@keyframes spin{100%{transform:rotate(360deg);}}
 
-/* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+.logo{
+    font-size:22px;
+    font-weight:600;
+    color:#a855f7;
 }
-.logo{font-weight:700;font-size:22px;color:#a855f7;}
-nav ul{list-style:none;display:flex;gap:25px;}
-nav ul li a{text-decoration:none;color:white;transition:.3s;}
-nav ul li a:hover{color:#a855f7;}
 
-/* HERO */
+nav a{
+    margin-left:25px;
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#a855f7;
+}
+
 .hero{
-text-align:center;
-padding:120px 20px;
-animation:fadeIn 2s ease-in;
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1627856013091-fed6e0f6f61e?auto=format&fit=crop&w=1400&q=80');
+    background-size:cover;
+    background-position:center;
 }
-.hero h1{font-size:48px;margin-bottom:20px;}
-.hero p{opacity:.8;margin-bottom:25px;}
-.price{font-size:28px;margin-bottom:30px;}
-.price span{color:#00ff88;}
+
+.hero-content{
+    max-width:800px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.1);
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.price{
+    font-size:28px;
+    margin-bottom:30px;
+}
+
+.price span{
+    color:#22c55e;
+    font-weight:600;
+}
+
 .btn{
-background:linear-gradient(45deg,#a855f7,#6b21a8);
-padding:15px 35px;
-border-radius:10px;
-text-decoration:none;
-color:white;
-font-weight:600;
-transition:.3s;
-}
-.btn:hover{opacity:.8;}
-
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-
-/* SECTION */
-section{padding:80px 8%;}
-.section-title{text-align:center;font-size:32px;margin-bottom:40px;}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+    display:inline-block;
+    padding:15px 40px;
+    border-radius:12px;
+    background:linear-gradient(45deg,#9333ea,#6366f1);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
 }
 
-/* CARD */
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-transition:.3s;
-text-align:center;
-}
-.card:hover{
-transform:translateY(-10px);
-background:rgba(255,255,255,0.1);
-}
-select{
-margin-top:15px;
-padding:10px;
-width:100%;
-border-radius:8px;
-border:none;
+.btn:hover{
+    transform:scale(1.05);
 }
 
-/* FEATURES */
-.feature-box{
-text-align:center;
-padding:20px;
+.services{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-/* PRICING */
-.plan{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:15px;
-text-align:center;
-transition:.3s;
+.service-box{
+    padding:15px 30px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+    cursor:pointer;
 }
-.plan:hover{transform:scale(1.05);}
-.plan-price{
-font-size:28px;
-color:#00ff88;
-margin:15px 0;
-}
-.plan ul{list-style:none;margin-bottom:20px;}
-.plan ul li{margin:8px 0;}
 
-/* FAQ */
-.faq-item{
-margin-bottom:15px;
-background:rgba(255,255,255,0.05);
-padding:15px;
-border-radius:10px;
-cursor:pointer;
+.service-box:hover{
+    background:#9333ea;
 }
-.faq-answer{display:none;margin-top:10px;font-size:14px;opacity:.8;}
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:rgba(0,0,0,0.5);
-margin-top:50px;
+@media(max-width:768px){
+    h1{
+        font-size:32px;
+    }
 }
 </style>
 </head>
+
 <body>
 
-<div id="loader"><div class="loader"></div></div>
-
-<nav>
-<div class="logo">🔥 Demon Nodes</div>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#games">Games</a></li>
-<li><a href="#pricing">Pricing</a></li>
-<li><a href="#faq">FAQ</a></li>
-</ul>
-</nav>
+<header>
+    <div class="logo">Ateex Cloud</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Hosting</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
 <section class="hero">
-<h1>Premium Game & VPS Hosting</h1>
-<p>Ultra low latency nodes in SG, India & Germany with DDoS Protection.</p>
-<div class="price">Starting at <span>$1/mo</span></div>
-<a href="#pricing" class="btn">View Plans</a>
+    <div class="hero-content">
+        <div class="badge">🎮 Minecraft Hosting</div>
+        <h1>Minecraft Server Hosting</h1>
+        <p>High-performance Minecraft server hosting with low latency, DDoS protection, and 24/7 support.</p>
+        <div class="price">Starting at <span>$1/mo</span></div>
+        <a href="#" class="btn">Get Started →</a>
+
+        <div class="services">
+            <div class="service-box">Minecraft Hosting</div>
+            <div class="service-box">VPS Hosting</div>
+            <div class="service-box">Web Hosting</div>
+            <div class="service-box">Bot Hosting</div>
+        </div>
+    </div>
 </section>
-
-<section id="games">
-<div class="section-title">🎮 Game Hosting</div>
-<div class="grid">
-
-<div class="card">
-<h3>Minecraft Hosting</h3>
-<p>Instant setup with mod support.</p>
-<select>
-<option>Select Node</option>
-<option>SG - Singapore</option>
-<option>IN - India</option>
-<option>Germany</option>
-</select>
-</div>
-
-<div class="card">
-<h3>Palworld Hosting</h3>
-<p>High RAM optimized servers.</p>
-<select>
-<option>Select Node</option>
-<option>SG - Singapore</option>
-<option>IN - India</option>
-<option>Germany</option>
-</select>
-</div>
-
-<div class="card">
-<h3>VPS Hosting</h3>
-<p>Full root access & NVMe SSD.</p>
-<select>
-<option>Select Node</option>
-<option>SG - Singapore</option>
-<option>IN - India</option>
-<option>Germany</option>
-</select>
-</div>
-
-</div>
-</section>
-
-<section id="pricing">
-<div class="section-title">💎 Pricing Plans</div>
-<div class="grid">
-
-<div class="plan">
-<h2>Starter</h2>
-<div class="plan-price">$1/mo</div>
-<ul>
-<li>2GB RAM</li>
-<li>1 vCPU</li>
-<li>DDoS Protection</li>
-<li>24/7 Support</li>
-</ul>
-<a href="#" class="btn">Order Now</a>
-</div>
-
-<div class="plan">
-<h2>Pro</h2>
-<div class="plan-price">$5/mo</div>
-<ul>
-<li>8GB RAM</li>
-<li>4 vCPU</li>
-<li>Free Backups</li>
-<li>Priority Support</li>
-</ul>
-<a href="#" class="btn">Order Now</a>
-</div>
-
-<div class="plan">
-<h2>Enterprise</h2>
-<div class="plan-price">$15/mo</div>
-<ul>
-<li>16GB RAM</li>
-<li>8 vCPU</li>
-<li>Premium Support</li>
-<li>Dedicated Resources</li>
-</ul>
-<a href="#" class="btn">Order Now</a>
-</div>
-
-</div>
-</section>
-
-<section id="faq">
-<div class="section-title">❓ Frequently Asked Questions</div>
-
-<div class="faq-item" onclick="toggleFAQ(this)">
-How fast are Demon Nodes servers?
-<div class="faq-answer">Our servers use NVMe SSD and high-speed processors for ultra-low latency performance.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFAQ(this)">
-Do you provide DDoS protection?
-<div class="faq-answer">Yes, all plans include enterprise-grade DDoS protection.</div>
-</div>
-
-</section>
-
-<footer>
-© 2026 Demon Nodes. All Rights Reserved.
-</footer>
-
-<script>
-window.onload = function(){
-document.getElementById("loader").style.display="none";
-}
-
-function toggleFAQ(element){
-let answer = element.querySelector(".faq-answer");
-answer.style.display = answer.style.display === "block" ? "none" : "block";
-}
-</script>
 
 </body>
 </html>
