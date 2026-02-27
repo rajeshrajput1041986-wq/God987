@@ -1,172 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minecraft Server Hosting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraFast Hosting | Premium Minecraft Servers</title>
+    <style>
+        /* CSS Style - Professional Dark Theme */
+        :root {
+            --primary-color: #007bff;
+            --bg-dark: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+            --accent: #00d4ff;
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://wallpaperaccess.com/full/215151.jpg');
+            background-size: cover;
+            border-bottom: 3px solid var(--primary-color);
+        }
 
-body{
-    background:#0f172a;
-    color:white;
-}
+        header h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent); }
+        header p { font-size: 1.2rem; color: var(--text-gray); }
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-}
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.logo{
-    font-size:22px;
-    font-weight:600;
-    color:#a855f7;
-}
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-nav a{
-    margin-left:25px;
-    text-decoration:none;
-    color:white;
-    font-weight:400;
-    transition:0.3s;
-}
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,123,255,0.2);
+        }
 
-nav a:hover{
-    color:#a855f7;
-}
+        .pricing-card h3 { color: var(--accent); margin-top: 0; }
+        .price { font-size: 1.5rem; font-weight: bold; margin: 15px 0; }
+        .price span { font-size: 0.9rem; color: var(--text-gray); }
 
-.hero{
-    height:90vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url('https://images.unsplash.com/photo-1627856013091-fed6e0f6f61e?auto=format&fit=crop&w=1400&q=80');
-    background-size:cover;
-    background-position:center;
-}
+        .specs {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 20px;
+        }
 
-.hero-content{
-    max-width:800px;
-}
+        .specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 0.95rem;
+        }
 
-.badge{
-    display:inline-block;
-    padding:8px 20px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.1);
-    margin-bottom:20px;
-}
+        .specs li::before {
+            content: "▸ ";
+            color: var(--primary-color);
+        }
 
-h1{
-    font-size:48px;
-    font-weight:700;
-    margin-bottom:20px;
-}
+        .buy-btn {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-.hero p{
-    font-size:18px;
-    color:#cbd5e1;
-    margin-bottom:30px;
-}
+        .buy-btn:hover {
+            background-color: #0056b3;
+        }
 
-.price{
-    font-size:28px;
-    margin-bottom:30px;
-}
-
-.price span{
-    color:#22c55e;
-    font-weight:600;
-}
-
-.btn{
-    display:inline-block;
-    padding:15px 40px;
-    border-radius:12px;
-    background:linear-gradient(45deg,#9333ea,#6366f1);
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-.services{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.service-box{
-    padding:15px 30px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
-    transition:0.3s;
-    cursor:pointer;
-}
-
-.service-box:hover{
-    background:#9333ea;
-}
-
-@media(max-width:768px){
-    h1{
-        font-size:32px;
-    }
-}
-</style>
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">Ateex Cloud</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Hosting</a>
-        <a href="#">Pricing</a>
-        <a href="#">Contact</a>
-    </nav>
+    <h1>🚀 Ultra-Fast Hosting</h1>
+    <p>Locked-down. Always live. Speed, security, and 99.99% uptime.</p>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <div class="badge">🎮 Minecraft Hosting</div>
-        <h1>Minecraft Server Hosting</h1>
-        <p>High-performance Minecraft server hosting with low latency, DDoS protection, and 24/7 support.</p>
-        <div class="price">Starting at <span>$1/mo</span></div>
-        <a href="#" class="btn">Get Started →</a>
-
-        <div class="services">
-            <div class="service-box">Minecraft Hosting</div>
-            <div class="service-box">VPS Hosting</div>
-            <div class="service-box">Web Hosting</div>
-            <div class="service-box">Bot Hosting</div>
-        </div>
+<div class="container" id="plans-container">
     </div>
-</section>
+
+<footer>
+    <p>&copy; 2026 Ultra-Fast Hosting | Professional Minecraft Solutions</p>
+</footer>
+
+<script>
+    // JavaScript to handle the plans and redirect
+    const discordLink = "https://discord.gg/5YRV4BdzW";
+
+    const plans = [
+        { name: "Starter Plan", price: "₹35 / $0.45", cpu: "50%", ram: "512 MB", disk: "1 GB", backup: "1" },
+        { name: "Bronze Plan", price: "₹60 / $0.75", cpu: "100%", ram: "1 GB", disk: "2 GB", backup: "1" },
+        { name: "Silver Plan", price: "₹110 / $1.35", cpu: "150%", ram: "2 GB", disk: "4 GB", backup: "1" },
+        { name: "Gold Plan", price: "₹180 / $2.20", cpu: "200%", ram: "4 GB", disk: "8 GB", backup: "1X Allocation" },
+        { name: "Diamond Plan", price: "₹250 / $3.00", cpu: "250%", ram: "6 GB", disk: "12 GB", backup: "2 Backups" },
+        { name: "Platinum Plan", price: "₹320 / $3.85", cpu: "300%", ram: "8 GB", disk: "16 GB", backup: "2 Backups" },
+        { name: "Elite Plan", price: "₹390 / $4.70", cpu: "350%", ram: "10 GB", disk: "20 GB", backup: "3 Backups" },
+        { name: "Master Plan", price: "₹460 / $5.55", cpu: "400%", ram: "12 GB", disk: "25 GB", backup: "3 Backups" },
+        { name: "Titan Plan", price: "₹530 / $6.40", cpu: "450%", ram: "14 GB", disk: "30 GB", backup: "4 Backups" },
+        { name: "Cosmic Plan", price: "₹600 / $7.25", cpu: "500%", ram: "16 GB", disk: "40 GB", backup: "4 Backups" },
+        { name: "Dragon Plan", price: "₹750 / $9.00", cpu: "600%", ram: "20 GB", disk: "50 GB", backup: "5 Backups" },
+        { name: "Mythic Plan", price: "₹900 / $10.85", cpu: "700%", ram: "24 GB", disk: "60 GB", backup: "6 Backups" },
+        { name: "Ultimate Plan", price: "₹1100 / $13.25", cpu: "800% (Dedicated)", ram: "32 GB", disk: "100 GB NVMe", backup: "Unlimited" }
+    ];
+
+    const container = document.getElementById('plans-container');
+
+    plans.forEach(plan => {
+        const card = document.createElement('div');
+        card.className = 'pricing-card';
+        card.innerHTML = `
+            <div>
+                <h3>${plan.name}</h3>
+                <div class="price">${plan.price} <span>/mo</span></div>
+                <ul class="specs">
+                    <li>⚡ CPU: ${plan.cpu}</li>
+                    <li>🧠 RAM: ${plan.ram}</li>
+                    <li>📂 DISK: ${plan.disk}</li>
+                    <li>💾 Backup: ${plan.backup}</li>
+                </ul>
+            </div>
+            <a href="${discordLink}" class="buy-btn">Order via Ticket</a>
+        `;
+        container.appendChild(card);
+    });
+</script>
 
 </body>
 </html>
