@@ -3,164 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UltraFast Hosting | Premium Minecraft Servers</title>
+    <title>UltraFast Hosting | VPS & Minecraft</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        /* CSS Style - Professional Dark Theme */
         :root {
-            --primary-color: #007bff;
-            --bg-dark: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --text-white: #ffffff;
-            --text-gray: #b3b3b3;
-            --accent: #00d4ff;
+            --primary: #00d4ff;
+            --secondary: #007bff;
+            --bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #ffffff;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://wallpaperaccess.com/full/215151.jpg');
-            background-size: cover;
-            border-bottom: 3px solid var(--primary-color);
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        header h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent); }
-        header p { font-size: 1.2rem; color: var(--text-gray); }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 10%;
+            background: rgba(0,0,0,0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        nav .links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
-        .pricing-card {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        /* Hero Section */
+        .hero {
+            height: 80vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0,123,255,0.2);
-        }
-
-        .pricing-card h3 { color: var(--accent); margin-top: 0; }
-        .price { font-size: 1.5rem; font-weight: bold; margin: 15px 0; }
-        .price span { font-size: 0.9rem; color: var(--text-gray); }
-
-        .specs {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .specs li {
-            padding: 8px 0;
-            border-bottom: 1px solid #2a2a2a;
-            font-size: 0.95rem;
-        }
-
-        .specs li::before {
-            content: "▸ ";
-            color: var(--primary-color);
-        }
-
-        .buy-btn {
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .buy-btn:hover {
-            background-color: #0056b3;
-        }
-
-        footer {
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 40px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            padding: 0 20px;
         }
+        .hero h1 { font-size: 4rem; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: #ccc; margin-top: 10px; }
+
+        /* Pricing Section */
+        .section-title { text-align: center; font-size: 2.5rem; margin: 50px 0; color: var(--primary); }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 10%;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+        .card h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .price { font-size: 2rem; color: var(--primary); margin: 20px 0; }
+        .specs { list-style: none; text-align: left; margin-bottom: 30px; color: #bbb; }
+        .specs li { margin: 10px 0; font-size: 0.95rem; }
+        .specs li::before { content: "✔ "; color: var(--primary); }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background: white; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid #222; color: #555; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>🚀 Ultra-Fast Hosting</h1>
-    <p>Locked-down. Always live. Speed, security, and 99.99% uptime.</p>
-</header>
+    <div id="particles-js"></div>
 
-<div class="container" id="plans-container">
-    </div>
+    <nav>
+        <div class="logo">ULTRAFAST HOST</div>
+        <div class="links">
+            <a href="#minecraft">Minecraft</a>
+            <a href="#vps">VPS Hosting</a>
+            <a href="https://discord.gg/5YRV4BdzW">Discord</a>
+        </div>
+    </nav>
 
-<footer>
-    <p>&copy; 2026 Ultra-Fast Hosting | Professional Minecraft Solutions</p>
-</footer>
+    <section class="hero">
+        <h1>Next-Gen Hosting Solutions</h1>
+        <p>Ultra-fast. Locked-down. Always live. 99.99% Uptime Guaranteed.</p>
+        <div style="margin-top: 30px;">
+            <a href="#minecraft" class="btn">View Minecraft Plans</a>
+        </div>
+    </section>
 
-<script>
-    // JavaScript to handle the plans and redirect
-    const discordLink = "https://discord.gg/5YRV4BdzW";
+    <h2 id="minecraft" class="section-title">Minecraft Plans</h2>
+    <div class="grid" id="mc-plans"></div>
 
-    const plans = [
-        { name: "Starter Plan", price: "₹35 / $0.45", cpu: "50%", ram: "512 MB", disk: "1 GB", backup: "1" },
-        { name: "Bronze Plan", price: "₹60 / $0.75", cpu: "100%", ram: "1 GB", disk: "2 GB", backup: "1" },
-        { name: "Silver Plan", price: "₹110 / $1.35", cpu: "150%", ram: "2 GB", disk: "4 GB", backup: "1" },
-        { name: "Gold Plan", price: "₹180 / $2.20", cpu: "200%", ram: "4 GB", disk: "8 GB", backup: "1X Allocation" },
-        { name: "Diamond Plan", price: "₹250 / $3.00", cpu: "250%", ram: "6 GB", disk: "12 GB", backup: "2 Backups" },
-        { name: "Platinum Plan", price: "₹320 / $3.85", cpu: "300%", ram: "8 GB", disk: "16 GB", backup: "2 Backups" },
-        { name: "Elite Plan", price: "₹390 / $4.70", cpu: "350%", ram: "10 GB", disk: "20 GB", backup: "3 Backups" },
-        { name: "Master Plan", price: "₹460 / $5.55", cpu: "400%", ram: "12 GB", disk: "25 GB", backup: "3 Backups" },
-        { name: "Titan Plan", price: "₹530 / $6.40", cpu: "450%", ram: "14 GB", disk: "30 GB", backup: "4 Backups" },
-        { name: "Cosmic Plan", price: "₹600 / $7.25", cpu: "500%", ram: "16 GB", disk: "40 GB", backup: "4 Backups" },
-        { name: "Dragon Plan", price: "₹750 / $9.00", cpu: "600%", ram: "20 GB", disk: "50 GB", backup: "5 Backups" },
-        { name: "Mythic Plan", price: "₹900 / $10.85", cpu: "700%", ram: "24 GB", disk: "60 GB", backup: "6 Backups" },
-        { name: "Ultimate Plan", price: "₹1100 / $13.25", cpu: "800% (Dedicated)", ram: "32 GB", disk: "100 GB NVMe", backup: "Unlimited" }
-    ];
+    <h2 id="vps" class="section-title">Premium VPS Hosting</h2>
+    <div class="grid" id="vps-plans"></div>
 
-    const container = document.getElementById('plans-container');
+    <footer>
+        &copy; 2026 UltraFast Hosting | Powered by Innovation
+    </footer>
 
-    plans.forEach(plan => {
-        const card = document.createElement('div');
-        card.className = 'pricing-card';
-        card.innerHTML = `
-            <div>
-                <h3>${plan.name}</h3>
-                <div class="price">${plan.price} <span>/mo</span></div>
-                <ul class="specs">
-                    <li>⚡ CPU: ${plan.cpu}</li>
-                    <li>🧠 RAM: ${plan.ram}</li>
-                    <li>📂 DISK: ${plan.disk}</li>
-                    <li>💾 Backup: ${plan.backup}</li>
-                </ul>
-            </div>
-            <a href="${discordLink}" class="buy-btn">Order via Ticket</a>
-        `;
-        container.appendChild(card);
-    });
-</script>
+    <script>
+        // Particle Background Config
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#00d4ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00d4ff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            }
+        });
 
+        const discordLink = "https://discord.gg/5YRV4BdzW";
+
+        // Minecraft Data
+        const mcPlans = [
+            { name: "Starter", price: "₹35", cpu: "50%", ram: "512MB", disk: "1GB" },
+            { name: "Bronze", price: "₹60", cpu: "100%", ram: "1GB", disk: "2GB" },
+            { name: "Silver", price: "₹110", cpu: "150%", ram: "2GB", disk: "4GB" },
+            { name: "Gold", price: "₹180", cpu: "200%", ram: "4GB", disk: "8GB" }
+        ];
+
+        // VPS Data
+        const vpsPlans = [
+            { name: "VPS - Tier 1", price: "₹450", cpu: "2 Core", ram: "4GB DDR4", disk: "50GB NVMe" },
+            { name: "VPS - Tier 2", price: "₹850", cpu: "4 Core", ram: "8GB DDR4", disk: "100GB NVMe" },
+            { name: "VPS - Tier 3", price: "₹1500", cpu: "6 Core", ram: "16GB DDR4", disk: "200GB NVMe" }
+        ];
+
+        function createCards(data, elementId) {
+            const container = document.getElementById(elementId);
+            data.forEach(p => {
+                container.innerHTML += `
+                    <div class="card">
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}<span>/mo</span></div>
+                        <ul class="specs">
+                            <li>CPU: ${p.cpu}</li>
+                            <li>Memory: ${p.ram}</li>
+                            <li>Disk: ${p.disk}</li>
+                            <li>Anti-DDoS Protection</li>
+                        </ul>
+                        <a href="${discordLink}" class="btn">Buy Now</a>
+                    </div>
+                `;
+            });
+        }
+
+        createCards(mcPlans, 'mc-plans');
+        createCards(vpsPlans, 'vps-plans');
+    </script>
 </body>
 </html>
